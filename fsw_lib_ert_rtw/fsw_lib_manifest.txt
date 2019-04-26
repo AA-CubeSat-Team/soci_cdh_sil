@@ -1,0 +1,10 @@
+This file is the manifest for the generated code from model 'fsw_lib'.
+/Users/taylorreynolds/uw_cubesat_adcs_sourcetree/adcs/sw/components/adcs_sim/matlab/fsw_lib_ert_rtw/ert_main.c
+/Users/taylorreynolds/uw_cubesat_adcs_sourcetree/adcs/sw/components/adcs_sim/matlab/fsw_lib_ert_rtw/fsw_lib.c
+/Users/taylorreynolds/uw_cubesat_adcs_sourcetree/adcs/sw/components/adcs_sim/matlab/fsw_lib_ert_rtw/fsw_lib_data.c
+rt_nonfinite.h
+/Users/taylorreynolds/uw_cubesat_adcs_sourcetree/adcs/sw/components/adcs_sim/matlab/fsw_lib_ert_rtw/fsw_lib.h
+/Users/taylorreynolds/uw_cubesat_adcs_sourcetree/adcs/sw/components/adcs_sim/matlab/fsw_lib_ert_rtw/rtwtypes.h
+/Users/taylorreynolds/uw_cubesat_adcs_sourcetree/adcs/sw/components/adcs_sim/matlab/fsw_lib_ert_rtw/defines.txt
+/Users/taylorreynolds/uw_cubesat_adcs_sourcetree/adcs/sw/components/adcs_sim/matlab/fsw_lib_ert_rtw/html
+/Users/taylorreynolds/uw_cubesat_adcs_sourcetree/adcs/sw/components/adcs_sim/matlab/fsw_lib_ert_rtw/fsw_lib_manifest.txt
