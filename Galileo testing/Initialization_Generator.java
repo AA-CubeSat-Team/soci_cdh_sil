@@ -17,7 +17,7 @@ import java.util.Map;
  */
 
 public class Initialization_Generator {
-    public static final String CSV_FILE = "test_fsw_inputs.csv";
+    public static final String CSV_FILE = "test_gnc2_inputs.csv";
     public static final String CSV_SPLIT_BY = ",";
     public static final String OUTPUT_FILE = "Generated_C_Output.txt";
     
