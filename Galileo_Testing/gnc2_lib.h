@@ -24,6 +24,7 @@
 #include "rtwtypes.h"
 #include <math.h>
 #include <string.h>
+
 #ifndef gnc2_lib_COMMON_INCLUDES_
 # define gnc2_lib_COMMON_INCLUDES_
 #include "rtwtypes.h"
