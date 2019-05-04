@@ -2,6 +2,7 @@ int stop = 0;
 
 extern "C" {
   #include <stddef.h>
+  #include <time.h>
   #include <stdio.h>                     /* This ert_main.c example uses printf/fflush */
   #include "gnc2_lib.h"                  /* Model's header file */
   #include "rtwtypes.h" 
