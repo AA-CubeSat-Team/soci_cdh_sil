@@ -28,8 +28,8 @@
 #ifndef gnc2_lib_COMMON_INCLUDES_
 # define gnc2_lib_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#include "rtw_continuous.h"
-#include "rtw_solver.h"
+//#include "rtw_continuous.h"
+//#include "rtw_solver.h"
 #include "ecos.h"
 #endif                                 /* gnc2_lib_COMMON_INCLUDES_ */
 
