@@ -105,6 +105,7 @@ double calculateSD(uint32_t data[], int array_size)
 
 void setup() {
   Serial.begin(9600);
+  Serial.print("Initialized!");
 }
 
 void loop() {
