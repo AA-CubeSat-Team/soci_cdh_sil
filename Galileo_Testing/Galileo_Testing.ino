@@ -6,82 +6,34 @@ extern "C" {
   #include <stdio.h>                     /* This ert_main.c example uses printf/fflush */
   #include "gnc2_lib.h"                  /* Model's header file */
   #include "rtwtypes.h" 
-  #include "test_gnc_inputs.h"
+  #include "test_gnc2_inputs.h"
 }
 
 void Print_Results(ExtY input) {
-  Serial.print("sc_quat \t= ");
-  for(int i = 0; i < 4; i++) {
-    Serial.print(input.sc_quat[i]);
-    Serial.print("   ");
+  Serial.println("opt_state = ");
+  for(int i = 0; i < 100; i++) {
+    Serial.println(input.opt_state[i]);
   }
-  Serial.println();
   
-  Serial.print("body_rates \t= ");
-  for(int i = 0; i < 3; i++) {
-    Serial.print(input.body_rates[i]);
-    Serial.print("   ");
+  Serial.println("opt_ctrl_Nm = ");
+  for(int i = 0; i < 30; i++) {
+    Serial.println(input.opt_ctrl_Nm[i]);
   }
-  Serial.println();
   
-  Serial.print("sc_mode \t= ");
-  Serial.println(input.sc_mode);
+  Serial.print("final_time_s = ");
+  Serial.println(input.final_time_s);
   
-  Serial.print("vel_point \t= ");
-  Serial.println(input.vel_point);
-  
-  Serial.print("quat_cmd \t= ");
-  for(int i = 0; i < 4; i++) {
-    Serial.print(input.quat_cmd[i]);
-    Serial.print("   ");
+  Serial.print("exitcode = ");
+  for(int i = 0; i < 11; i++) {
+    Serial.println(input.exitcode[i]);
   }
-  Serial.println();
   
-  Serial.print("sc_above_gs \t= ");
-  Serial.println(input.sc_above_gs);
-  
-  Serial.print("sc_in_sun \t= ");
-  Serial.println(input.sc_in_sun);
-  
-  Serial.print("mag_eci_unit \t= ");
-  for(int i = 0; i < 3; i++) {
-    Serial.print(input.mag_eci_unit[i]);
-    Serial.print("   ");
+  Serial.println("sol_times_s = ");
+  for(int i = 0; i < 10; i++) {
+    Serial.println(input.sol_times_s[i]);
   }
-  Serial.println();
   
-  Serial.print("pos_eci_km \t= ");
-  for(int i = 0; i < 3; i++) {
-    Serial.print(input.pos_eci_km[i]);
-    Serial.print("   ");
-  }
-  Serial.println();
-  
-  Serial.print("vel_eci_kmps \t= ");
-  for(int i = 0; i < 3; i++) {
-    Serial.print(input.vel_eci_kmps[i]);
-    Serial.print("   ");
-  }
-  Serial.println();
-  
-  Serial.print("gyro_valid \t= ");
-  Serial.println(input.gyro_valid);
-  
-  Serial.print("cmd_RW_rpm \t= ");
-  for(int i = 0; i < 3; i++) {
-    Serial.print(input.cmd_RW_rpm[i]);
-    Serial.print("   ");
-  }
-  Serial.println();
-  
-  Serial.print("cmd_MT_dv \t= ");
-  for(int i = 0; i < 3; i++) {
-    Serial.print(input.cmd_MT_dv[i]);
-    Serial.print("   ");
-  }
-  Serial.println();
 }
-
 
 void rt_OneStep(void)
 {
@@ -153,6 +105,7 @@ double calculateSD(uint32_t data[], int array_size)
 
 void setup() {
   Serial.begin(9600);
+  Serial.print("Initialized!");
 }
 
 void loop() {
