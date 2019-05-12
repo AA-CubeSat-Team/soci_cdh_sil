@@ -1,0 +1,137 @@
+/*
+ * Academic License - for use in teaching, academic research, and meeting
+ * course requirements at degree granting institutions only.  Not for
+ * government, commercial, or other organizational use.
+ *
+ * File: ert_main.c
+ *
+ * Code generated for Simulink model 'target_generation_lib0'.
+ *
+ * Model version                  : 1.39
+ * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
+ * C/C++ source code generated on : Fri May  3 16:50:56 2019
+ *
+ * Target selection: ert.tlc
+ * Embedded hardware selection: ARM Compatible->ARM Cortex
+ * Code generation objectives:
+ *    1. Execution efficiency
+ *    2. RAM efficiency
+ * Validation result: Not run
+ */
+
+#include <stddef.h>
+#include <stdio.h>                     /* This ert_main.c example uses printf/fflush */
+#include "target_generation_lib0.h"    /* Model's header file */
+#include "rtwtypes.h"
+#include <stdlib.h>
+#include <string.h>
+
+/*
+ * Associating rt_OneStep with a real-time clock or interrupt service routine
+ * is what makes the generated code "real-time".  The function rt_OneStep is
+ * always associated with the base rate of the model.  Subrates are managed
+ * by the base rate from inside the generated code.  Enabling/disabling
+ * interrupts and floating point context switches are target specific.  This
+ * example code indicates where these should take place relative to executing
+ * the generated code step function.  Overrun behavior should be tailored to
+ * your application needs.  This example simply sets an error status in the
+ * real-time model and returns from rt_OneStep.
+ */
+void rt_OneStep(void);
+void rt_OneStep(void)
+{
+  static boolean_T OverrunFlag = false;
+
+  /* Disable interrupts here */
+
+  /* Check for overrun */
+  if (OverrunFlag) {
+    rtmSetErrorStatus(rtM, "Overrun");
+    return;
+  }
+
+  OverrunFlag = true;
+
+  /* Save FPU context here (if necessary) */
+  /* Re-enable timer or interrupt here */
+  /* Set model inputs here */
+
+  /* Step the model */
+  target_generation_lib0_step();
+
+  /* Get model outputs here */
+
+  /* Indicate task complete */
+  OverrunFlag = false;
+
+  /* Disable interrupts here */
+  /* Restore FPU context here (if necessary) */
+  /* Enable interrupts here */
+}
+
+/*
+ * The example "main" function illustrates what is required by your
+ * application code to initialize, execute, and terminate the generated code.
+ * Attaching rt_OneStep to a real-time clock is target specific.  This example
+ * illustrates how you do this relative to initializing the model.
+ */
+#define MAXCHAR 1000
+int_T main(int_T argc, const char *argv[])
+{
+  /* Unused arguments */
+  (void)(argc);
+  (void)(argv);
+   target_generation_lib0_initialize();
+    FILE *fp;
+    const ExtU Input = {31,{0.5670,0.3732,-0.7343},{0.9082,0.3185,0.2715},{-0.2821,0.7163,0.6382},{19,6939.5,3.2923,54.615,247.46,0.0006703,130.54,325.03,15.721},{1,0,0,0}};
+    rtU = Input;
+    rt_OneStep();
+  /* Initialize model */
+
+  /* Attach rt_OneStep to a timer or interrupt service routine with
+   * period 0.1 seconds (the model's base sample time) here.  The
+   * call syntax for rt_OneStep is
+   *
+   *  rt_OneStep();
+   */
+  fp = fopen ("outputs.txt","w");
+    fprintf(fp,"quat_cmd: \n");
+
+   for(int i = 0; i < 4;i++){
+       fprintf (fp,"%f\n",rtY.quat_cmd[i]);
+   }
+       fprintf(fp,"==========\n");
+    fprintf(fp,"omega_cmd_radps: \n");
+
+   for(int i = 0; i < 3;i++){
+       fprintf (fp,"%f\n",rtY.omega_cmd_radps[i]);
+   }
+       fprintf(fp,"==========\n");
+
+   fprintf(fp,"flag: \n");
+  fprintf (fp,"%f\t",rtY.flag);
+   /* close the file*/  
+  fclose (fp);
+  printf("Warning: The simulation will run forever. "
+         "Generated ERT main won't simulate model step behavior. "
+         "To change this behavior select the 'MAT-file logging' option.\n");
+  fflush((NULL));
+  while (rtmGetErrorStatus(rtM) == (NULL)) {
+    /*  Perform other application tasks here */
+  }
+  
+  /* Disable rt_OneStep() here */
+
+  /* Terminate model */
+
+   /* open the file for writing*/
+   
+  target_generation_lib0_terminate();
+  return 0;
+}
+
+/*
+ * File trailer for generated code.
+ *
+ * [EOF]
+ */
