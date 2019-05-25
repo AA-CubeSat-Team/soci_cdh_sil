@@ -11,17 +11,17 @@ this.def["rtM"] = {file: "gnc2_interface_lib0_c.html",line:38,type:"var"};
 this.def["run_ecos"] = {file: "gnc2_interface_lib0_c.html",line:55,type:"fcn"};
 this.def["mohlfcjegdbijmoh_parse_ecos"] = {file: "gnc2_interface_lib0_c.html",line:179,type:"fcn"};
 this.def["gnc2_interface_lib0_step"] = {file: "gnc2_interface_lib0_c.html",line:661,type:"fcn"};
-this.def["gnc2_interface_lib0_initialize"] = {file: "gnc2_interface_lib0_c.html",line:1443,type:"fcn"};
-this.def["gnc2_interface_lib0_terminate"] = {file: "gnc2_interface_lib0_c.html",line:1461,type:"fcn"};
+this.def["gnc2_interface_lib0_initialize"] = {file: "gnc2_interface_lib0_c.html",line:1471,type:"fcn"};
+this.def["gnc2_interface_lib0_terminate"] = {file: "gnc2_interface_lib0_c.html",line:1489,type:"fcn"};
 this.def["RT_MODEL"] = {file: "gnc2_interface_lib0_h.html",line:65,type:"type"};
 this.def["struct_smBZrh5QKo7AjcXQZMv0K"] = {file: "gnc2_interface_lib0_h.html",line:82,type:"type"};
-this.def["struct_9Ll92vtZ40wkalE7YzMpRH"] = {file: "gnc2_interface_lib0_h.html",line:107,type:"type"};
-this.def["sKpQB9jVSEZrFP5iOeb0DOE"] = {file: "gnc2_interface_lib0_h.html",line:135,type:"type"};
-this.def["saot08BhBJej868PSk74SzB"] = {file: "gnc2_interface_lib0_h.html",line:168,type:"type"};
-this.def["DW"] = {file: "gnc2_interface_lib0_h.html",line:196,type:"type"};
-this.def["PrevZCX"] = {file: "gnc2_interface_lib0_h.html",line:202,type:"type"};
-this.def["ExtU"] = {file: "gnc2_interface_lib0_h.html",line:215,type:"type"};
-this.def["ExtY"] = {file: "gnc2_interface_lib0_h.html",line:226,type:"type"};
+this.def["struct_CNJisvXzXeOlyYMLAri79G"] = {file: "gnc2_interface_lib0_h.html",line:108,type:"type"};
+this.def["sKpQB9jVSEZrFP5iOeb0DOE"] = {file: "gnc2_interface_lib0_h.html",line:136,type:"type"};
+this.def["s1n10RwODcp0ZkyXC3ROmMB"] = {file: "gnc2_interface_lib0_h.html",line:170,type:"type"};
+this.def["DW"] = {file: "gnc2_interface_lib0_h.html",line:199,type:"type"};
+this.def["PrevZCX"] = {file: "gnc2_interface_lib0_h.html",line:205,type:"type"};
+this.def["ExtU"] = {file: "gnc2_interface_lib0_h.html",line:218,type:"type"};
+this.def["ExtY"] = {file: "gnc2_interface_lib0_h.html",line:229,type:"type"};
 this.def["aiekglfkjmoplfcb_xgetrf"] = {file: "../../slprj/ert/_sharedutils/html/aiekglfkjmoplfcb_xgetrf_c.html",line:20,type:"fcn"};
 this.def["aieknglfdbimpppp_mldivide"] = {file: "../../slprj/ert/_sharedutils/html/aieknglfdbimpppp_mldivide_c.html",line:21,type:"fcn"};
 this.def["baaicbaafcbiglfk_linspace"] = {file: "../../slprj/ert/_sharedutils/html/baaicbaafcbiglfk_linspace_c.html",line:20,type:"fcn"};
@@ -36,11 +36,11 @@ this.def["fcbafcjedbimfkfc_inv"] = {file: "../../slprj/ert/_sharedutils/html/fcb
 this.def["fcbilfcbmohdjekn_eye"] = {file: "../../slprj/ert/_sharedutils/html/fcbilfcbmohdjekn_eye_c.html",line:20,type:"fcn"};
 this.def["fkfkimopaimgfkno_kron"] = {file: "../../slprj/ert/_sharedutils/html/fkfkimopaimgfkno_kron_c.html",line:19,type:"fcn"};
 this.def["gdbifkfcbaimlfkn_norm"] = {file: "../../slprj/ert/_sharedutils/html/gdbifkfcbaimlfkn_norm_c.html",line:20,type:"fcn"};
+this.def["glnoimgdnopppphl_deriv"] = {file: "../../slprj/ert/_sharedutils/html/glnoimgdnopppphl_deriv_c.html",line:25,type:"fcn"};
 this.def["hdbaecbadjekpphd_xgehrd"] = {file: "../../slprj/ert/_sharedutils/html/hdbaecbadjekpphd_xgehrd_c.html",line:23,type:"fcn"};
 this.def["hdbippphieknimgl_xnrm2"] = {file: "../../slprj/ert/_sharedutils/html/hdbippphieknimgl_xnrm2_c.html",line:20,type:"fcn"};
 this.def["hdjmdbaaiecbkfcj_get_f_vals"] = {file: "../../slprj/ert/_sharedutils/html/hdjmdbaaiecbkfcj_get_f_vals_c.html",line:23,type:"fcn"};
 this.def["iecbbimomgdjjekn_xnrm2"] = {file: "../../slprj/ert/_sharedutils/html/iecbbimomgdjjekn_xnrm2_c.html",line:20,type:"fcn"};
-this.def["imglnglnfkngcbai_deriv"] = {file: "../../slprj/ert/_sharedutils/html/imglnglnfkngcbai_deriv_c.html",line:25,type:"fcn"};
 this.def["jmglbiekmgdbbaai_xrot"] = {file: "../../slprj/ert/_sharedutils/html/jmglbiekmgdbbaai_xrot_c.html",line:19,type:"fcn"};
 this.def["knohcbaaphlnkfcb_convert_to_CCS"] = {file: "../../slprj/ert/_sharedutils/html/knohcbaaphlnkfcb_convert_to_CCS_c.html",line:24,type:"fcn"};
 this.def["lfkfaaaafknomohl_xdlanv2"] = {file: "../../slprj/ert/_sharedutils/html/lfkfaaaafknomohl_xdlanv2_c.html",line:21,type:"fcn"};
@@ -286,6 +286,10 @@ function Html2SrcLink() {
 	this.html2Root["gdbifkfcbaimlfkn_norm_c.html"] = "../../slprj/ert/_sharedutils/html/gdbifkfcbaimlfkn_norm_c.html";
 	this.html2SrcPath["gdbifkfcbaimlfkn_norm_h.html"] = "../gdbifkfcbaimlfkn_norm.h";
 	this.html2Root["gdbifkfcbaimlfkn_norm_h.html"] = "../../slprj/ert/_sharedutils/html/gdbifkfcbaimlfkn_norm_h.html";
+	this.html2SrcPath["glnoimgdnopppphl_deriv_c.html"] = "../glnoimgdnopppphl_deriv.c";
+	this.html2Root["glnoimgdnopppphl_deriv_c.html"] = "../../slprj/ert/_sharedutils/html/glnoimgdnopppphl_deriv_c.html";
+	this.html2SrcPath["glnoimgdnopppphl_deriv_h.html"] = "../glnoimgdnopppphl_deriv.h";
+	this.html2Root["glnoimgdnopppphl_deriv_h.html"] = "../../slprj/ert/_sharedutils/html/glnoimgdnopppphl_deriv_h.html";
 	this.html2SrcPath["hdbaecbadjekpphd_xgehrd_c.html"] = "../hdbaecbadjekpphd_xgehrd.c";
 	this.html2Root["hdbaecbadjekpphd_xgehrd_c.html"] = "../../slprj/ert/_sharedutils/html/hdbaecbadjekpphd_xgehrd_c.html";
 	this.html2SrcPath["hdbaecbadjekpphd_xgehrd_h.html"] = "../hdbaecbadjekpphd_xgehrd.h";
@@ -302,10 +306,6 @@ function Html2SrcLink() {
 	this.html2Root["iecbbimomgdjjekn_xnrm2_c.html"] = "../../slprj/ert/_sharedutils/html/iecbbimomgdjjekn_xnrm2_c.html";
 	this.html2SrcPath["iecbbimomgdjjekn_xnrm2_h.html"] = "../iecbbimomgdjjekn_xnrm2.h";
 	this.html2Root["iecbbimomgdjjekn_xnrm2_h.html"] = "../../slprj/ert/_sharedutils/html/iecbbimomgdjjekn_xnrm2_h.html";
-	this.html2SrcPath["imglnglnfkngcbai_deriv_c.html"] = "../imglnglnfkngcbai_deriv.c";
-	this.html2Root["imglnglnfkngcbai_deriv_c.html"] = "../../slprj/ert/_sharedutils/html/imglnglnfkngcbai_deriv_c.html";
-	this.html2SrcPath["imglnglnfkngcbai_deriv_h.html"] = "../imglnglnfkngcbai_deriv.h";
-	this.html2Root["imglnglnfkngcbai_deriv_h.html"] = "../../slprj/ert/_sharedutils/html/imglnglnfkngcbai_deriv_h.html";
 	this.html2SrcPath["jmglbiekmgdbbaai_xrot_c.html"] = "../jmglbiekmgdbbaai_xrot.c";
 	this.html2Root["jmglbiekmgdbbaai_xrot_c.html"] = "../../slprj/ert/_sharedutils/html/jmglbiekmgdbbaai_xrot_c.html";
 	this.html2SrcPath["jmglbiekmgdbbaai_xrot_h.html"] = "../jmglbiekmgdbbaai_xrot.h";
@@ -447,4 +447,4 @@ function Html2SrcLink() {
 }
 Html2SrcLink.instance = new Html2SrcLink();
 var fileList = [
-"ert_main_c.html","gnc2_interface_lib0_c.html","gnc2_interface_lib0_h.html","aiekglfkjmoplfcb_xgetrf_c.html","aiekglfkjmoplfcb_xgetrf_h.html","aieknglfdbimpppp_mldivide_c.html","aieknglfdbimpppp_mldivide_h.html","baaicbaafcbiglfk_linspace_c.html","baaicbaafcbiglfk_linspace_h.html","baiegdbacjmgjekn_xungorghr_c.html","baiegdbacjmgjekn_xungorghr_h.html","biecbaaiaieclnop_eml_dlahqr_c.html","biecbaaiaieclnop_eml_dlahqr_h.html","bimghlngphlfpphl_Q_linearize_c.html","bimghlngphlfpphl_Q_linearize_h.html","cbaalnglphdjcjek_mrdivide_c.html","cbaalnglphdjcjek_mrdivide_h.html","cbaiohlfjeknbaim_xrot_c.html","cbaiohlfjeknbaim_xrot_h.html","cjmgngdjaiecmgln_my_find_c.html","cjmgngdjaiecmgln_my_find_h.html","ecbagdjmpphdgdjm_deriv_c.html","ecbagdjmpphdgdjm_deriv_h.html","fcbafcjedbimfkfc_inv_c.html","fcbafcjedbimfkfc_inv_h.html","fcbilfcbmohdjekn_eye_c.html","fcbilfcbmohdjekn_eye_h.html","fkfkimopaimgfkno_kron_c.html","fkfkimopaimgfkno_kron_h.html","gdbifkfcbaimlfkn_norm_c.html","gdbifkfcbaimlfkn_norm_h.html","hdbaecbadjekpphd_xgehrd_c.html","hdbaecbadjekpphd_xgehrd_h.html","hdbippphieknimgl_xnrm2_c.html","hdbippphieknimgl_xnrm2_h.html","hdjmdbaaiecbkfcj_get_f_vals_c.html","hdjmdbaaiecbkfcj_get_f_vals_h.html","iecbbimomgdjjekn_xnrm2_c.html","iecbbimomgdjjekn_xnrm2_h.html","imglnglnfkngcbai_deriv_c.html","imglnglnfkngcbai_deriv_h.html","jmglbiekmgdbbaai_xrot_c.html","jmglbiekmgdbbaai_xrot_h.html","knohcbaaphlnkfcb_convert_to_CCS_c.html","knohcbaaphlnkfcb_convert_to_CCS_h.html","lfkfaaaafknomohl_xdlanv2_c.html","lfkfaaaafknomohl_xdlanv2_h.html","lfknecbacjmgaimo_xgerc_c.html","lfknecbacjmgaimo_xgerc_h.html","mgdbiecbmohlcjmo_convert_to_CCS_c.html","mgdbiecbmohlcjmo_convert_to_CCS_h.html","mgdjecjmkfkndbim_eye_c.html","mgdjecjmkfkndbim_eye_h.html","nglnimohlfkfphln_norm_c.html","nglnimohlfkfphln_norm_h.html","nohdopppmohdjmoh_eye_c.html","nohdopppmohdjmoh_eye_h.html","ohdbdjecdjekngln_xzlarfg_c.html","ohdbdjecdjekngln_xzlarfg_h.html","ohdbngdjimopdbim_mldivide_c.html","ohdbngdjimopdbim_mldivide_h.html","ohlnfkfchlnoaimo_my_find_c.html","ohlnfkfchlnoaimo_my_find_h.html","phlnfknoohlfohdj_mldivide_c.html","phlnfknoohlfohdj_mldivide_h.html","pphlkfcjfcjmiekf_foh_c.html","pphlkfcjfcjmiekf_foh_h.html","rtGetInf_c.html","rtGetInf_h.html","rtGetNaN_c.html","rtGetNaN_h.html","rt_hypotd_snf_c.html","rt_hypotd_snf_h.html","rt_nonfinite_c.html","rt_nonfinite_h.html","rtwtypes_h.html","zero_crossing_types_h.html","amd_1_c.html","amd_2_c.html","amd_aat_c.html","amd_control_c.html","amd_defaults_c.html","amd_dump_c.html","amd_global_c.html","amd_info_c.html","amd_order_c.html","amd_post_tree_c.html","amd_postorder_c.html","amd_preprocess_c.html","amd_valid_c.html","cone_c.html","ctrlc_c.html","ecos_c.html","equil_c.html","expcone_c.html","kkt_c.html","ldl_c.html","matlab_main_c.html","preproc_c.html","runecos_c.html","spla_c.html","splamm_c.html","timer_c.html","wright_omega_c.html"];
+"ert_main_c.html","gnc2_interface_lib0_c.html","gnc2_interface_lib0_h.html","aiekglfkjmoplfcb_xgetrf_c.html","aiekglfkjmoplfcb_xgetrf_h.html","aieknglfdbimpppp_mldivide_c.html","aieknglfdbimpppp_mldivide_h.html","baaicbaafcbiglfk_linspace_c.html","baaicbaafcbiglfk_linspace_h.html","baiegdbacjmgjekn_xungorghr_c.html","baiegdbacjmgjekn_xungorghr_h.html","biecbaaiaieclnop_eml_dlahqr_c.html","biecbaaiaieclnop_eml_dlahqr_h.html","bimghlngphlfpphl_Q_linearize_c.html","bimghlngphlfpphl_Q_linearize_h.html","cbaalnglphdjcjek_mrdivide_c.html","cbaalnglphdjcjek_mrdivide_h.html","cbaiohlfjeknbaim_xrot_c.html","cbaiohlfjeknbaim_xrot_h.html","cjmgngdjaiecmgln_my_find_c.html","cjmgngdjaiecmgln_my_find_h.html","ecbagdjmpphdgdjm_deriv_c.html","ecbagdjmpphdgdjm_deriv_h.html","fcbafcjedbimfkfc_inv_c.html","fcbafcjedbimfkfc_inv_h.html","fcbilfcbmohdjekn_eye_c.html","fcbilfcbmohdjekn_eye_h.html","fkfkimopaimgfkno_kron_c.html","fkfkimopaimgfkno_kron_h.html","gdbifkfcbaimlfkn_norm_c.html","gdbifkfcbaimlfkn_norm_h.html","glnoimgdnopppphl_deriv_c.html","glnoimgdnopppphl_deriv_h.html","hdbaecbadjekpphd_xgehrd_c.html","hdbaecbadjekpphd_xgehrd_h.html","hdbippphieknimgl_xnrm2_c.html","hdbippphieknimgl_xnrm2_h.html","hdjmdbaaiecbkfcj_get_f_vals_c.html","hdjmdbaaiecbkfcj_get_f_vals_h.html","iecbbimomgdjjekn_xnrm2_c.html","iecbbimomgdjjekn_xnrm2_h.html","jmglbiekmgdbbaai_xrot_c.html","jmglbiekmgdbbaai_xrot_h.html","knohcbaaphlnkfcb_convert_to_CCS_c.html","knohcbaaphlnkfcb_convert_to_CCS_h.html","lfkfaaaafknomohl_xdlanv2_c.html","lfkfaaaafknomohl_xdlanv2_h.html","lfknecbacjmgaimo_xgerc_c.html","lfknecbacjmgaimo_xgerc_h.html","mgdbiecbmohlcjmo_convert_to_CCS_c.html","mgdbiecbmohlcjmo_convert_to_CCS_h.html","mgdjecjmkfkndbim_eye_c.html","mgdjecjmkfkndbim_eye_h.html","nglnimohlfkfphln_norm_c.html","nglnimohlfkfphln_norm_h.html","nohdopppmohdjmoh_eye_c.html","nohdopppmohdjmoh_eye_h.html","ohdbdjecdjekngln_xzlarfg_c.html","ohdbdjecdjekngln_xzlarfg_h.html","ohdbngdjimopdbim_mldivide_c.html","ohdbngdjimopdbim_mldivide_h.html","ohlnfkfchlnoaimo_my_find_c.html","ohlnfkfchlnoaimo_my_find_h.html","phlnfknoohlfohdj_mldivide_c.html","phlnfknoohlfohdj_mldivide_h.html","pphlkfcjfcjmiekf_foh_c.html","pphlkfcjfcjmiekf_foh_h.html","rtGetInf_c.html","rtGetInf_h.html","rtGetNaN_c.html","rtGetNaN_h.html","rt_hypotd_snf_c.html","rt_hypotd_snf_h.html","rt_nonfinite_c.html","rt_nonfinite_h.html","rtwtypes_h.html","zero_crossing_types_h.html","amd_1_c.html","amd_2_c.html","amd_aat_c.html","amd_control_c.html","amd_defaults_c.html","amd_dump_c.html","amd_global_c.html","amd_info_c.html","amd_order_c.html","amd_post_tree_c.html","amd_postorder_c.html","amd_preprocess_c.html","amd_valid_c.html","cone_c.html","ctrlc_c.html","ecos_c.html","equil_c.html","expcone_c.html","kkt_c.html","ldl_c.html","matlab_main_c.html","preproc_c.html","runecos_c.html","spla_c.html","splamm_c.html","timer_c.html","wright_omega_c.html"];

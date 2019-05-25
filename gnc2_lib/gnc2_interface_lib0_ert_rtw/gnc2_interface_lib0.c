@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'gnc2_interface_lib0'.
  *
- * Model version                  : 1.8
+ * Model version                  : 1.10
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri May 24 16:44:58 2019
+ * C/C++ source code generated on : Sat May 25 15:05:05 2019
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -666,11 +666,13 @@ void gnc2_interface_lib0_step(void)
   boolean_T x[10];
   real_T k2[10];
   real_T k3[10];
+  real_T b_xtmp;
   int32_T low_i;
   int32_T high_i;
   int32_T mid_i;
-  static const real_T J[9] = { 0.0338, -4.884E-5, -7.393E-5, -4.884E-5, 0.0346,
-    7.124E-6, -7.393E-5, 7.124E-6, 0.0075 };
+  static const real_T J[9] = { 0.033800072, -4.88358E-5, -7.392968E-5,
+    -4.88358E-5, 0.03456792999, 7.12402E-6, -7.392968E-5, 7.12402E-6,
+    0.00742076536 };
 
   real_T D[16];
   real_T x0[100];
@@ -682,7 +684,6 @@ void gnc2_interface_lib0_step(void)
   real_T sang;
   real_T t;
   int32_T d_k;
-  real_T b_y;
   static const int8_T b_a[3] = { 0, 0, -1 };
 
   static const real_T d_y[16] = { 0.50000000000000011, 0.0, 0.0, 0.0, 0.0,
@@ -922,12 +923,12 @@ void gnc2_interface_lib0_step(void)
         t = ((1.0 + (real_T)d_k) - 1.0) / 9.0;
 
         /* '<S7>:1:98' qt(:,k) = (sin((1 - t)*ang)/sang).*q0 + (sin(t*ang)/sang).*q1; */
-        b_y = sin((1.0 - t) * ang) / sang;
+        b_xtmp = sin((1.0 - t) * ang) / sang;
         t = sin(t * ang) / sang;
-        qb[d_k << 2] = b_y * rtU.quat_in[0] + t * rtU.quat_cmd[0];
-        qb[1 + (d_k << 2)] = b_y * rtU.quat_in[1] + t * rtU.quat_cmd[1];
-        qb[2 + (d_k << 2)] = b_y * rtU.quat_in[2] + t * rtU.quat_cmd[2];
-        qb[3 + (d_k << 2)] = b_y * rtU.quat_in[3] + t * rtU.quat_cmd[3];
+        qb[d_k << 2] = b_xtmp * rtU.quat_in[0] + t * rtU.quat_cmd[0];
+        qb[1 + (d_k << 2)] = b_xtmp * rtU.quat_in[1] + t * rtU.quat_cmd[1];
+        qb[2 + (d_k << 2)] = b_xtmp * rtU.quat_in[2] + t * rtU.quat_cmd[2];
+        qb[3 + (d_k << 2)] = b_xtmp * rtU.quat_in[3] + t * rtU.quat_cmd[3];
       }
     }
 
@@ -1199,7 +1200,21 @@ void gnc2_interface_lib0_step(void)
    *  Inport: '<Root>/GPS_epoch'
    *  Inport: '<Root>/GPS_time'
    */
-  diff = rtU.GPS_time[0] - rtU.GPS_epoch[0];
+  ang = rtU.GPS_time[0] - rtU.GPS_epoch[0];
+
+  /* Switch: '<S1>/Switch' incorporates:
+   *  UnitDelay: '<S1>/Unit Delay'
+   */
+  if (rtb_FixPtRelationalOperator) {
+    diff = ang;
+  } else {
+    diff = rtDW.UnitDelay_DSTATE;
+  }
+
+  /* End of Switch: '<S1>/Switch' */
+
+  /* Sum: '<S1>/Subtract' */
+  ang -= diff;
 
   /* Delay: '<S1>/Resettable Delay' incorporates:
    *  Inport: '<Root>/hw_Nms_init'
@@ -1229,49 +1244,56 @@ void gnc2_interface_lib0_step(void)
   /* MATLAB Function: '<S1>/INTERP' incorporates:
    *  Delay: '<S1>/Resettable Delay'
    */
-  /*  parameters */
+  /* SOAC_INTERP */
+  /*  */
+  /*  This function will interpolate the optimal solution from SOAC given the */
+  /*  time t. Time t is assumed to represent the time SINCE the optimizer was */
+  /*  called by flight software (necessitating the switch outside of this */
+  /*  function). One RK4 step is performed to interpolate the state, while the */
+  /*  control is interpolated using affine interpolation. */
+  /*  */
+  /*  T. Reynolds -- RAIN LAB */
   /* MATLAB Function 'gnc2_interface_lib/INTERP': '<S4>:1' */
-  /* '<S4>:1:5' N  = 10; */
-  /* '<S4>:1:6' ut = linspace(0,s_opt,N); */
+  /*  parameters */
+  /* '<S4>:1:15' N  = soac_params.N; */
+  /* '<S4>:1:16' ut = linspace(0,s_opt,N); */
   ut[9] = rtY.s;
   ut[0] = 0.0;
   if ((rtY.s < 0.0) && (fabs(rtY.s) > 8.9884656743115785E+307)) {
-    ang = rtY.s / 9.0;
+    sang = rtY.s / 9.0;
     for (low_i = 0; low_i < 8; low_i++) {
-      ut[1 + low_i] = (1.0 + (real_T)low_i) * ang;
+      ut[1 + low_i] = (1.0 + (real_T)low_i) * sang;
     }
   } else {
-    ang = rtY.s / 9.0;
+    sang = rtY.s / 9.0;
     for (d_k = 0; d_k < 8; d_k++) {
-      ut[1 + d_k] = (1.0 + (real_T)d_k) * ang;
+      ut[1 + d_k] = (1.0 + (real_T)d_k) * sang;
     }
   }
 
-  /*  soac_params.N = 10 */
-  /* '<S4>:1:7' k  = sum(t>ut); */
+  /* '<S4>:1:17' k  = sum(t>ut); */
   for (i = 0; i < 10; i++) {
-    x[i] = (diff > ut[i]);
+    x[i] = (ang > ut[i]);
   }
 
-  ang = x[0];
+  sang = x[0];
   for (d_k = 0; d_k < 9; d_k++) {
-    ang += (real_T)x[d_k + 1];
+    sang += (real_T)x[d_k + 1];
   }
 
-  /*  current interval */
-  /* '<S4>:1:8' J  = [ 0.0338    -4.884e-05 -7.393e-05; */
-  /* '<S4>:1:9'     -4.884e-05  0.0346     7.124e-06; */
-  /* '<S4>:1:10'     -7.393e-05  7.124e-06  0.0075 ]; */
+  /*  current time interval */
+  /* '<S4>:1:18' J  = soac_params.inertia; */
   /*  kg m2 */
-  /*  Output final state/control if we are beyond the final maneuver time */
-  /* '<S4>:1:13' if ((s_opt>0)&&(t>=s_opt)) */
-  if ((rtY.s > 0.0) && (diff >= rtY.s)) {
-    /* '<S4>:1:14' u_opt_t = zeros(3,1); */
+  /*  Output final state and ZERO feedforward control if we are beyond the  */
+  /*  final maneuver time */
+  /* '<S4>:1:22' if ((s_opt>0)&&(t>=s_opt)) */
+  if ((rtY.s > 0.0) && (ang >= rtY.s)) {
+    /* '<S4>:1:23' u_opt_t = zeros(3,1); */
     wk[0] = 0.0;
     wk[1] = 0.0;
     wk[2] = 0.0;
 
-    /* '<S4>:1:15' x_opt_t = [ x_opt(1:4,N); J\x_opt(5:7,N); x_opt(8:10,N) ]; */
+    /* '<S4>:1:24' x_opt_t = [ x_opt(1:4,N); J\x_opt(5:7,N); x_opt(8:10,N) ]; */
     ohdbngdjimopdbim_mldivide(J, &rtY.X_h[94], rtb_J_0);
     rtb_x_opt_t[0] = rtY.X_h[90];
     rtb_x_opt_t[1] = rtY.X_h[91];
@@ -1285,66 +1307,68 @@ void gnc2_interface_lib0_step(void)
     rtb_x_opt_t[9] = rtY.X_h[99];
   } else {
     /*  Otherwise integrate to current state and interpolate for current control */
-    /* '<S4>:1:20' if ((k>0) && (s_opt>0)) */
-    if ((ang > 0.0) && (rtY.s > 0.0)) {
-      /* '<S4>:1:21' um      = u_opt(3*(k-1)+(1:3)); */
-      /* '<S4>:1:22' up      = u_opt(3*k+(1:3)); */
-      /* '<S4>:1:23' u       = [reshape(um,3,1) reshape(up,3,1)]; */
-      u[0] = rtY.U[(int32_T)((ang - 1.0) * 3.0 + 1.0) - 1];
-      u[3] = rtY.U[(int32_T)(3.0 * ang + 1.0) - 1];
-      u[1] = rtY.U[(int32_T)((ang - 1.0) * 3.0 + 2.0) - 1];
-      u[4] = rtY.U[(int32_T)(3.0 * ang + 2.0) - 1];
-      u[2] = rtY.U[(int32_T)((ang - 1.0) * 3.0 + 3.0) - 1];
-      u[5] = rtY.U[(int32_T)(3.0 * ang + 3.0) - 1];
+    /* '<S4>:1:29' if ((k>0) && (s_opt>0)) */
+    if ((sang > 0.0) && (rtY.s > 0.0)) {
+      /* '<S4>:1:30' um      = u_opt(3*(k-1)+(1:3)); */
+      /* '<S4>:1:31' up      = u_opt(3*k+(1:3)); */
+      /* '<S4>:1:32' u       = [reshape(um,3,1) reshape(up,3,1)]; */
+      u[0] = rtY.U[(int32_T)((sang - 1.0) * 3.0 + 1.0) - 1];
+      u[3] = rtY.U[(int32_T)(3.0 * sang + 1.0) - 1];
+      u[1] = rtY.U[(int32_T)((sang - 1.0) * 3.0 + 2.0) - 1];
+      u[4] = rtY.U[(int32_T)(3.0 * sang + 2.0) - 1];
+      u[2] = rtY.U[(int32_T)((sang - 1.0) * 3.0 + 3.0) - 1];
+      u[5] = rtY.U[(int32_T)(3.0 * sang + 3.0) - 1];
 
-      /* '<S4>:1:24' tspan   = [ ut(k); ut(k+1) ]; */
-      tspan[0] = ut[(int32_T)ang - 1];
-      tspan[1] = ut[(int32_T)(ang + 1.0) - 1];
+      /* '<S4>:1:33' tspan   = [ ut(k); ut(k+1) ]; */
+      tspan[0] = ut[(int32_T)sang - 1];
+      tspan[1] = ut[(int32_T)(sang + 1.0) - 1];
 
-      /*  step integrator for x_opt_t */
-      /* '<S4>:1:27' x_opt_t = rk4_one_step(t,x_last,u,J,tspan,soac_params.sample_time_s); */
-      /* '<S4>:1:45' k1 = deriv(t    ,x       ,u,J,tspan); */
-      imglnglnfkngcbai_deriv(diff, rtDW.ResettableDelay_DSTATE, u, J, tspan, xi);
+      /*  step integrator for feedforward state x_opt_t */
+      /* '<S4>:1:36' x_opt_t = rk4_one_step(t,x_last,u,J,tspan,soac_params.sample_time_s); */
+      /*  soac_interp */
+      /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+      /* %%%%%%%%%%%%%%%%%%%%%%%%%%% SUPPORT FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+      /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+      /* '<S4>:1:57' k1 = deriv(t     ,x        ,u,J,tspan); */
+      glnoimgdnopppphl_deriv(ang, rtDW.ResettableDelay_DSTATE, u, J, tspan, xi);
 
-      /* '<S4>:1:46' k2 = deriv(t+h/2,x+h/2*k1,u,J,tspan); */
+      /* '<S4>:1:58' k2 = deriv(t+dt/2,x+dt/2*k1,u,J,tspan); */
       for (i = 0; i < 10; i++) {
         rtb_x_opt_t[i] = 0.05 * xi[i] + rtDW.ResettableDelay_DSTATE[i];
       }
 
-      imglnglnfkngcbai_deriv(diff + 0.05, rtb_x_opt_t, u, J, tspan, k2);
+      glnoimgdnopppphl_deriv(ang + 0.05, rtb_x_opt_t, u, J, tspan, k2);
 
-      /* '<S4>:1:47' k3 = deriv(t+h/2,x+h/2*k2,u,J,tspan); */
+      /* '<S4>:1:59' k3 = deriv(t+dt/2,x+dt/2*k2,u,J,tspan); */
       for (i = 0; i < 10; i++) {
         rtb_x_opt_t[i] = 0.05 * k2[i] + rtDW.ResettableDelay_DSTATE[i];
       }
 
-      imglnglnfkngcbai_deriv(diff + 0.05, rtb_x_opt_t, u, J, tspan, k3);
+      glnoimgdnopppphl_deriv(ang + 0.05, rtb_x_opt_t, u, J, tspan, k3);
 
-      /* '<S4>:1:48' k4 = deriv(t+h  ,x+h*k3  ,u,J,tspan); */
-      /* '<S4>:1:50' x = (x+h/6*(k1+2*k2+2*k3+k4)); */
+      /* '<S4>:1:60' k4 = deriv(t+dt  ,x+dt*k3  ,u,J,tspan); */
+      /* '<S4>:1:62' x = (x+dt/6*(k1+2*k2+2*k3+k4)); */
       for (i = 0; i < 10; i++) {
         rtb_x_opt_t[i] = 0.1 * k3[i] + rtDW.ResettableDelay_DSTATE[i];
       }
 
-      imglnglnfkngcbai_deriv(diff + 0.1, rtb_x_opt_t, u, J, tspan, tmp_0);
+      glnoimgdnopppphl_deriv(ang + 0.1, rtb_x_opt_t, u, J, tspan, tmp_0);
       for (i = 0; i < 10; i++) {
         rtb_x_opt_t[i] = (((2.0 * k2[i] + xi[i]) + 2.0 * k3[i]) + tmp_0[i]) *
           0.016666666666666666 + rtDW.ResettableDelay_DSTATE[i];
       }
 
-      /*      x_opt_t = [ x_opt_t(1:4); J\x_opt_t(5:7); x_opt_t(8:10) ]; */
-      /*      x_opt_t = [ x_opt(1:4,k); x_opt(5:7,k); x_opt(8:10,k) ]; */
-      /*  interpolate for control */
-      /* '<S4>:1:32' u_opt_t = zeros(3,1); */
-      /* '<S4>:1:33' for i = 1:3 */
+      /*  interpolate for feedforward control u_opt_t */
+      /* '<S4>:1:39' u_opt_t = zeros(3,1); */
+      /* '<S4>:1:40' for i = 1:3 */
       for (d_k = 0; d_k < 3; d_k++) {
-        /* '<S4>:1:34' u_opt_t(i) = interp1(ut,u_opt(i,:),t,'linear'); */
+        /* '<S4>:1:41' u_opt_t(i) = interp1(ut,u_opt(i,:),t,'linear'); */
         memcpy(&k2[0], &ut[0], 10U * sizeof(real_T));
         for (i = 0; i < 10; i++) {
           xi[i] = rtY.U[3 * i + d_k];
         }
 
-        ang = (rtNaN);
+        sang = (rtNaN);
         low_i = 1;
         do {
           exitg1 = 0;
@@ -1357,25 +1381,25 @@ void gnc2_interface_lib0_step(void)
           } else {
             if (ut[1] < 0.0) {
               for (low_i = 0; low_i < 5; low_i++) {
-                sang = k2[low_i];
+                b_xtmp = k2[low_i];
                 k2[low_i] = k2[9 - low_i];
-                k2[9 - low_i] = sang;
+                k2[9 - low_i] = b_xtmp;
               }
 
               for (low_i = 0; low_i < 5; low_i++) {
-                sang = xi[low_i];
+                b_xtmp = xi[low_i];
                 xi[low_i] = xi[9 - low_i];
-                xi[9 - low_i] = sang;
+                xi[9 - low_i] = b_xtmp;
               }
             }
 
-            if ((!rtIsNaN(diff)) && (!(diff > k2[9])) && (!(diff < k2[0]))) {
+            if ((!rtIsNaN(ang)) && (!(ang > k2[9])) && (!(ang < k2[0]))) {
               low_i = 1;
               i = 2;
               high_i = 10;
               while (high_i > i) {
                 mid_i = (low_i + high_i) >> 1;
-                if (diff >= k2[mid_i - 1]) {
+                if (ang >= k2[mid_i - 1]) {
                   low_i = mid_i;
                   i = mid_i + 1;
                 } else {
@@ -1383,15 +1407,15 @@ void gnc2_interface_lib0_step(void)
                 }
               }
 
-              ang = (diff - k2[low_i - 1]) / (k2[low_i] - k2[low_i - 1]);
-              if (ang == 0.0) {
-                ang = xi[low_i - 1];
-              } else if (ang == 1.0) {
-                ang = xi[low_i];
+              sang = (ang - k2[low_i - 1]) / (k2[low_i] - k2[low_i - 1]);
+              if (sang == 0.0) {
+                sang = xi[low_i - 1];
+              } else if (sang == 1.0) {
+                sang = xi[low_i];
               } else if (xi[low_i - 1] == xi[low_i]) {
-                ang = xi[low_i - 1];
+                sang = xi[low_i - 1];
               } else {
-                ang = (1.0 - ang) * xi[low_i - 1] + ang * xi[low_i];
+                sang = (1.0 - sang) * xi[low_i - 1] + sang * xi[low_i];
               }
             }
 
@@ -1399,16 +1423,17 @@ void gnc2_interface_lib0_step(void)
           }
         } while (exitg1 == 0);
 
-        wk[d_k] = ang;
+        wk[d_k] = sang;
       }
     } else {
-      /* '<S4>:1:36' else */
-      /* '<S4>:1:37' u_opt_t = zeros(3,1); */
+      /* '<S4>:1:43' else */
+      /*  this case happens when the optimizer has not yet been called */
+      /* '<S4>:1:45' u_opt_t = zeros(3,1); */
       wk[0] = 0.0;
       wk[1] = 0.0;
       wk[2] = 0.0;
 
-      /* '<S4>:1:38' x_opt_t = x_last; */
+      /* '<S4>:1:46' x_opt_t = x_last; */
       memcpy(&rtb_x_opt_t[0], &rtDW.ResettableDelay_DSTATE[0], 10U * sizeof
              (real_T));
     }
@@ -1428,6 +1453,9 @@ void gnc2_interface_lib0_step(void)
    *  Store in Global RAM
    */
   rtDW.DelayInput1_DSTATE = rtb_Compare_k;
+
+  /* Update for UnitDelay: '<S1>/Unit Delay' */
+  rtDW.UnitDelay_DSTATE = diff;
 
   /* Update for Delay: '<S1>/Resettable Delay' */
   rtDW.icLoad = 0U;

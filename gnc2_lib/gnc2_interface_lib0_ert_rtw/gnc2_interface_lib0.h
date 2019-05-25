@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'gnc2_interface_lib0'.
  *
- * Model version                  : 1.8
+ * Model version                  : 1.10
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri May 24 16:44:58 2019
+ * C/C++ source code generated on : Sat May 25 15:05:05 2019
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7
@@ -40,8 +40,8 @@
 #include "fcbafcjedbimfkfc_inv.h"
 #include "fkfkimopaimgfkno_kron.h"
 #include "gdbifkfcbaimlfkn_norm.h"
+#include "glnoimgdnopppphl_deriv.h"
 #include "hdbaecbadjekpphd_xgehrd.h"
-#include "imglnglnfkngcbai_deriv.h"
 #include "knohcbaaphlnkfcb_convert_to_CCS.h"
 #include "mgdbiecbmohlcjmo_convert_to_CCS.h"
 #include "mgdjecjmkfkndbim_eye.h"
@@ -83,8 +83,8 @@ typedef struct {
 
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_struct_9Ll92vtZ40wkalE7YzMpRH_
-#define DEFINED_TYPEDEF_FOR_struct_9Ll92vtZ40wkalE7YzMpRH_
+#ifndef DEFINED_TYPEDEF_FOR_struct_CNJisvXzXeOlyYMLAri79G_
+#define DEFINED_TYPEDEF_FOR_struct_CNJisvXzXeOlyYMLAri79G_
 
 typedef struct {
   struct_smBZrh5QKo7AjcXQZMv0K ic;
@@ -104,7 +104,8 @@ typedef struct {
   real_T y_size;
   real_T l_dim;
   real_T soc_dim;
-} struct_9Ll92vtZ40wkalE7YzMpRH;
+  real_T inertia[9];
+} struct_CNJisvXzXeOlyYMLAri79G;
 
 #endif
 
@@ -136,10 +137,10 @@ typedef struct tag_sKpQB9jVSEZrFP5iOeb0DOE sKpQB9jVSEZrFP5iOeb0DOE;
 
 #endif                                 /*typedef_sKpQB9jVSEZrFP5iOeb0DOE*/
 
-#ifndef struct_tag_saot08BhBJej868PSk74SzB
-#define struct_tag_saot08BhBJej868PSk74SzB
+#ifndef struct_tag_s1n10RwODcp0ZkyXC3ROmMB
+#define struct_tag_s1n10RwODcp0ZkyXC3ROmMB
 
-struct tag_saot08BhBJej868PSk74SzB
+struct tag_s1n10RwODcp0ZkyXC3ROmMB
 {
   sKpQB9jVSEZrFP5iOeb0DOE ic;
   real_T sample_time_s;
@@ -158,16 +159,17 @@ struct tag_saot08BhBJej868PSk74SzB
   real_T y_size;
   real_T l_dim;
   real_T soc_dim;
+  real_T inertia[9];
 };
 
-#endif                                 /*struct_tag_saot08BhBJej868PSk74SzB*/
+#endif                                 /*struct_tag_s1n10RwODcp0ZkyXC3ROmMB*/
 
-#ifndef typedef_saot08BhBJej868PSk74SzB
-#define typedef_saot08BhBJej868PSk74SzB
+#ifndef typedef_s1n10RwODcp0ZkyXC3ROmMB
+#define typedef_s1n10RwODcp0ZkyXC3ROmMB
 
-typedef struct tag_saot08BhBJej868PSk74SzB saot08BhBJej868PSk74SzB;
+typedef struct tag_s1n10RwODcp0ZkyXC3ROmMB s1n10RwODcp0ZkyXC3ROmMB;
 
-#endif                                 /*typedef_saot08BhBJej868PSk74SzB*/
+#endif                                 /*typedef_s1n10RwODcp0ZkyXC3ROmMB*/
 
 /* Block signals and states (auto storage) for system '<Root>' */
 typedef struct {
@@ -190,6 +192,7 @@ typedef struct {
   real_T dv1[10000];
   real_T dv2[900];
   real_T dv3[3000];
+  real_T UnitDelay_DSTATE;             /* '<S1>/Unit Delay' */
   int32_T rtb_DataTypeConversion9_k[1278];
   uint8_T icLoad;                      /* '<S1>/Resettable Delay' */
   boolean_T DelayInput1_DSTATE;        /* '<S3>/Delay Input1' */

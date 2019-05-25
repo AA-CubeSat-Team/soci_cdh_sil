@@ -7,9 +7,9 @@
  *
  * Code generated for Simulink model 'gnc2_interface_lib0'.
  *
- * Model version                  : 1.8
+ * Model version                  : 1.10
  * Simulink Coder version         : 8.11 (R2016b) 25-Aug-2016
- * C/C++ source code generated on : Fri May 24 16:44:58 2019
+ * C/C++ source code generated on : Sat May 25 15:05:05 2019
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM 7

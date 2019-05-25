@@ -51,7 +51,7 @@ function CodeMetrics() {
 	 this.metricsArray.var["q"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/include/ecos/include/data.h",
 	size: 24};
 	 this.metricsArray.var["rtDW"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/test/gnc2_autocode_test/gnc2_interface_lib0_ert_rtw/gnc2_interface_lib0.c",
-	size: 2288778};
+	size: 2288786};
 	 this.metricsArray.var["rtInf"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/test/gnc2_autocode_test/slprj/ert/_sharedutils/rt_nonfinite.c",
 	size: 8};
 	 this.metricsArray.var["rtInfF"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/test/gnc2_autocode_test/slprj/ert/_sharedutils/rt_nonfinite.c",
@@ -267,6 +267,9 @@ function CodeMetrics() {
 	 this.metricsArray.fcn["getSOCDetails"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/include/ecos/src/cone.c",
 	stack: 0,
 	stackTotal: 0};
+	 this.metricsArray.fcn["glnoimgdnopppphl_deriv"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/test/gnc2_autocode_test/slprj/ert/_sharedutils/glnoimgdnopppphl_deriv.c",
+	stack: 476,
+	stackTotal: 476};
 	 this.metricsArray.fcn["gnc2_interface_lib0.c:mohlfcjegdbijmoh_parse_ecos"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/test/gnc2_autocode_test/gnc2_interface_lib0_ert_rtw/gnc2_interface_lib0.c",
 	stack: 800,
 	stackTotal: 800};
@@ -291,9 +294,6 @@ function CodeMetrics() {
 	 this.metricsArray.fcn["iecbbimomgdjjekn_xnrm2"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/test/gnc2_autocode_test/slprj/ert/_sharedutils/iecbbimomgdjjekn_xnrm2.c",
 	stack: 40,
 	stackTotal: 40};
-	 this.metricsArray.fcn["imglnglnfkngcbai_deriv"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/test/gnc2_autocode_test/slprj/ert/_sharedutils/imglnglnfkngcbai_deriv.c",
-	stack: 476,
-	stackTotal: 476};
 	 this.metricsArray.fcn["init"] = {file: "/Users/Taylor/uw_cubesat_adcs/adcs/sw/components/adcs_oac/include/ecos/src/ecos.c",
 	stack: 48,
 	stackTotal: 48};
