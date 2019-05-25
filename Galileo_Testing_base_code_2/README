@@ -1,0 +1,5 @@
+To get the .ino file to compile:
+
+Take the folder called "Archive", and move or copy it into Arduino/libraries 
+
+NOTE: the "Archive" folder does not contain the pesky file 'runecos.c'
