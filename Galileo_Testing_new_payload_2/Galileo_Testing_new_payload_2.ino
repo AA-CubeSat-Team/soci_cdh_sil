@@ -215,7 +215,7 @@ double calculateSD(uint32_t data[], int array_size)
 
 void setup() {
   Serial.begin(9600);
-  //Serial.println("Serial connection initialized!");
+  Serial.println("initialized");
 }
 
 void loop() {
@@ -231,13 +231,13 @@ void loop() {
      */
     //Serial.println("Model has been initialized!!");
         
-    //int array_size = sizeof(Inputs) / sizeof(ExtU);
-    int array_size = 20;
+    int array_size = sizeof(Inputs) / sizeof(ExtU);
+    //int array_size = 20;
 
-    for (int i=0; i<9; i++) {
-      rtU = Inputs[0];
-      rt_OneStep();
-    }
+    //for (int i=0; i<9; i++) {
+    // rtU = Inputs[0];
+    //  rt_OneStep();
+    //}
      
     // Clocked for 5ms per rt_OneStep()
 
@@ -293,6 +293,8 @@ void loop() {
     //Serial.println(toSeconds(calculateSD(data, array_size)));
     //Serial.print("Std deviation in microseconds: ");
     //Serial.println(calculateSD(data, array_size));
+
+    Serial.println("complete.");
 
     
     /* Attach rt_OneStep to a timer or interrupt service routine with

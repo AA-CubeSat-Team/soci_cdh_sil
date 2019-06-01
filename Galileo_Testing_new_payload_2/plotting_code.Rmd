@@ -1,0 +1,41 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+
+numcolumns = 35;
+
+
+cmd0 = as.vector(output_file[,1])
+i = 1
+plot0 = plot(as.vector(output_file[,i]),type="l")
+
+# 1 <= i <= 36
+plotString <- function(i) {
+  if (1 <= i && i <= 3) return(paste("cmd_torque_",i-1))
+  if (4 <= i && i <= 13) return(paste("cmd_state_",i-4))
+  if (14 <= i && i <= 14) return("s")
+  if (15 <= i && i <= 25) return(paste("exitcode_",i-15))
+  if (26 <= i && i <= 35) return(paste("time_",i-26))
+}
+
+for (i in 1:35) {
+  jpeg(paste(plotString(i),".jpeg"));
+  plot(as.vector(output_file[,i]),type="l",main=plotString(i),ylab=plotString(i))
+  dev.off()
+}
+```
+
+```{r}
+print(1:20)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).
